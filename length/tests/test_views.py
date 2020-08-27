@@ -19,6 +19,10 @@ class TestLengthConversion(TestCase):
         response = self.client.get('/length/convert/')
         self.assertEqual(response.status_code, 200)
 
+    def test_view_accessible_by_name(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+
     def test_centimetre_to_metre_conversion(self):
         """
         Test conversion of centimetre measurements to metre.
