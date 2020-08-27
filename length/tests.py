@@ -14,3 +14,17 @@ class TestLengthConversion(TestCase):
         """
         self.client = Client()
         self.url = reverse('length:convert')
+
+    def test_centimetre_to_metre_conversion(self):
+        """
+        Test conversion of centimetre measurements to metre.
+        """
+
+        data = {
+            "input_unit": "centimetre",
+            "output_unit": "metre",
+            "input_value": round(1234.987, 3)
+
+        }
+        response = self.client.get(self.url, data)
+        self.assertContains(response, 12.350)
