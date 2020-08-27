@@ -23,6 +23,11 @@ class TestLengthConversion(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
+    def test_view_uses_correct_template(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'length.html')
+
     def test_centimetre_to_metre_conversion(self):
         """
         Test conversion of centimetre measurements to metre.
