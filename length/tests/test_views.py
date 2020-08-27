@@ -15,6 +15,10 @@ class TestLengthConversion(TestCase):
         self.client = Client()
         self.url = reverse('length:convert')
 
+    def test_view_exists_at_desired_url(self):
+        response = self.client.get('/length/convert/')
+        self.assertEqual(response.status_code, 200)
+
     def test_centimetre_to_metre_conversion(self):
         """
         Test conversion of centimetre measurements to metre.
